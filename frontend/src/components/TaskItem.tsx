@@ -3,7 +3,7 @@ import CheckIcon from "../assets/check.svg?react"
 import LoaderIcon from "../assets/loader.svg?react"
 
 
-export const TaskItem = ({ task, handlerTaksClick }: TaskProp) => {
+export const TaskItem = ({ task, handlerTasksClick }: TaskProp) => {
 
     const getStatusClasses = (status: string) => {
         if (status === StatusTask.Concluida) return "bg-[#00ADB51A] bg-opacity-70"
@@ -31,7 +31,7 @@ export const TaskItem = ({ task, handlerTaksClick }: TaskProp) => {
                 type="checkbox"
                 checked={task.status === StatusTask.Pendente}
                 className="absolute h-full w-full cursor-pointer opacity-0"
-                onClick={() => handlerTaksClick(task.id)}
+                onClick={() => handlerTasksClick(task.id)}
                 onChange={handleCheckboxClick}
             />
             {task.status === "concluida" && <CheckIcon />}

@@ -21,7 +21,7 @@ export const Tasks = () => {
     const [tasks, setTasks] = useState<TaskItemProps[]>(TASKS);
     const [isOpenDialog, setIsOpenDialog] = useState(false)
     
-    const handlerTaksClick = (taskId: number) => {
+    const handlerTasksClick = (taskId: number) => {
         const newTasks = tasks.map((task) => {
             if(task.id !== taskId){
                 return task
@@ -75,7 +75,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterMorning.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick}/>
                         </div>
                     ))}
                 </div>
@@ -83,7 +83,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterLate.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick}/>
                         </div>
                     ))}
                 </div>
@@ -91,7 +91,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterEvening.map((item) => (
                         <div key={item.id} className="">
-                            <TaskItem key={item.id} task={item} handlerTaksClick={handlerTaksClick}/>
+                            <TaskItem key={item.id} task={item} handlerTasksClick={handlerTasksClick}/>
                         </div>
                     ))}
                 </div>

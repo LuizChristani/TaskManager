@@ -12,7 +12,7 @@ export interface TaskProps {
 
 export interface TaskProp {
     task: TaskItemProps
-    handlerTaksClick: (taskId: number) => void;
+    handlerTasksClick: (taskId: number) => void;
 }
 
 export const StatusTask = {
