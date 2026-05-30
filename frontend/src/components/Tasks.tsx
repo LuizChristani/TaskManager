@@ -41,13 +41,11 @@ export const Tasks = () => {
     }
 
     const handleAddTask = (task: TaskItemProps) => {
-        console.log("Nova task:", task);
         setTasks((prev) => [...prev, task])
         setIsOpenDialog(false)
     }
 
     const filterMorning = tasks.filter((item) => item.time.toLowerCase() === Time.Manha);
-    console.log(filterMorning)
     const filterLate = tasks.filter((item) => item.time.toLowerCase() === Time.Tarde);
     const filterEvening = tasks.filter((item) => item.time.toLowerCase() === Time.Noite);
     return (

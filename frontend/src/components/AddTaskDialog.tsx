@@ -32,7 +32,7 @@ export const AddTaskDialog = ({open, handleClose, handleSubmit} : TaskDialog) =>
                             <SelectTime value={time} onChange={(event) => setTime(event.target.value)}/>
                             <Input label="Descrição" placeholder="Descreva a tarefa" onChange={(e) => setDescription(e.target.value)} value={description}></Input>
                             <div className="flex w-full space-x-2">
-                                <Button color="danger" size="large" className="w-full" onClick={handleClose}>Cancelar</Button>
+                                <Button color="secondary" size="large" className="w-full" onClick={handleClose}>Cancelar</Button>
                                 <Button size="large" className="w-full" onClick={() => handleSubmit({
                                     id: Math.random(),
                                     titulo: title,

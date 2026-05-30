@@ -12,9 +12,9 @@ export const Button = ({children, color="primary", size="small", className, ...r
         base: `flex items-center justify-center gap-2 rounded-md px-3 font-semibold transition hover:opacity-75`,
         variants: {
             color: {
-                primary: "bg-[#00ADB5] text-[#FFFFFF]",
+                primary: "bg-[#00ADB5] text-white",
                 ghost: "bg-transparent",
-                secondary: "bg-gray-400",
+                secondary: "bg-[#EEEEEE]",
                 danger: "bg-red-500",
             },
             size: {
