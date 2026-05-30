@@ -25,18 +25,9 @@ export default function App() {
           </div>
         </div>
         <Card className="mt-4">
-            <div className="flex flex-col gap-2">
-              <span className="text-lg font-semibold">Manhã</span>
-              <Task task={task} time="manha"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-lg font-semibold">Tarde</span>
-              <Task task={task} time="tarde"/>
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-lg font-semibold">Noite</span>
-              <Task task={task} time="noite"/>
-            </div>
+          <Task task={task} time="Manha"/>
+          <Task task={task} time="Tarde"/>
+          <Task task={task} time="Noite"/>
         </Card>
       </div>
     </div>
