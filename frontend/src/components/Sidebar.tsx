@@ -2,8 +2,8 @@ import HomeIcon from "../assets/home.svg?react"
 import ListChecks from "../assets/list-checks.svg?react"
 
 export function Sidebar(){
-    return(
-        <div className="flex flex-col h-screen justify-between bg-green-500">
+    return (
+        <div className="flex flex-col h-screen justify-between bg-[#FFFFFF]">
             <div className="flex flex-col mt-2">
                 <div className="flex flex-col items-center p-2">
                     <h1 className="text-[#00ADB5]">Task Manager</h1>
