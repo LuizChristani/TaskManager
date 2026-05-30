@@ -1,15 +1,11 @@
 import { Sidebar } from "./components/Sidebar";
-import { Task } from "./components/Task";
+import { Tasks } from "./components/Tasks";
 import Add from "./assets/Add.svg?react"
 import Trash from "./assets/trash-2.svg?react"
 import { Card } from "./components/Card";
-import { useState } from "react";
-import { TASKS } from "./constants/Task";
 import { Button } from "./components/Button";
 
 export default function App() {
-  const [task, setTask] = useState(TASKS);
-
   return (
     <div className="flex w-screen h-screen">
       <Sidebar/>
@@ -33,9 +29,7 @@ export default function App() {
           </div>
         </div>
         <Card className="mt-4">
-          <Task task={task} time="Manha"/>
-          <Task task={task} time="Tarde"/>
-          <Task task={task} time="Noite"/>
+          <Tasks/>
         </Card>
       </div>
     </div>

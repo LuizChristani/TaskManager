@@ -8,5 +8,15 @@ export interface TaskItemProps {
 
 export interface TaskProps {
     task: TaskItemProps[],
-    time: string
 }
+
+export interface TaskProp {
+    task: TaskItemProps
+    handlerTaksClick: (taskId: number) => void;
+}
+
+export const StatusTask = {
+  Pendente: "pendente",
+  Progresso: "progresso",
+  Concluida: "concluida",
+} as const;

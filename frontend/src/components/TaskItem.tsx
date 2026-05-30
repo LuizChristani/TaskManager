@@ -1,28 +1,45 @@
-import type { TaskProps } from "../types/Task"
-import Details from "../assets/details.svg?react"
-
-const getStatus = (status: string) => {
-    if (status === "concluida") return {label: 'concluida', color: "bg-green-500/50"}
-    if (status === "progresso") return {label: 'progresso', color: "bg-yellow-500/50"}
-    if (status === "pendente") return {label: 'pendente', color: "bg-gray-500/50"}
-
-}
+import { StatusTask, type TaskProp } from "../types/Task";
+import CheckIcon from "../assets/check.svg?react"
+import LoaderIcon from "../assets/loader.svg?react"
 
 
-export const TaskItem = ({task, time}: TaskProps) => {
-    const filter = task.filter((item) => item.time === time)
+export const TaskItem = ({ task, handlerTaksClick }: TaskProp) => {
+
+    const getStatusClasses = (status: string) => {
+        if (status === StatusTask.Concluida) return "bg-[#00ADB51A] bg-opacity-50"
+        if (status === StatusTask.Progresso) return "bg-[#FFAA041A] bg-opacity-50"
+        if (status === StatusTask.Pendente) return "bg-[#35383E0D] bg-opacity-50"
+    }
+
+    const handleCheckboxClick = () => {
+        if (task.status === StatusTask.Pendente){
+            return StatusTask.Progresso;
+        }
+        if (task.status === StatusTask.Progresso){
+            return StatusTask.Pendente
+        }
+
+        return StatusTask.Pendente
+    }
+
     return (
-        filter.map((item) => {
-            const statusInfo = getStatus(item.status)
-            return(
-            <div key={item.id} className={`flex items-center justify-between p-4 rounded-xl ${statusInfo?.color}`}>
-                <div className="flex items-center gap-2">
-                    <input type="checkbox"></input>
-                    <span>{item.titulo}</span>
-                </div>
-                <a href='#' className="text-sm text-blue-500"><Details/></a>
-            </div>
-            )
-        })
+        <div className={`flex gap-2 ${getStatusClasses(task.status)}`}>
+            <label
+            className={`relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg ${getStatusClasses(task.status)}`}
+            >
+            <input
+                type="checkbox"
+                checked={task.status === StatusTask.Pendente}
+                className="absolute h-full w-full cursor-pointer opacity-0"
+                onClick={() => handlerTaksClick(task.id)}
+                onChange={handleCheckboxClick}
+            />
+            {task.status === "concluida" && <CheckIcon />}
+            {task.status === "progresso" && (
+                <LoaderIcon className="animate-spin text-brand-white" />
+            )}
+            </label>
+            {task.titulo}
+        </div>
     )
 }
