@@ -1,4 +1,5 @@
 import type { TaskProps } from "../types/Task"
+import Details from "../assets/details.svg?react"
 
 const getStatus = (status: string) => {
     if (status === "concluida") return {label: 'concluida', color: "bg-green-500/50"}
@@ -14,9 +15,12 @@ export const TaskItem = ({task, time}: TaskProps) => {
         filter.map((item) => {
             const statusInfo = getStatus(item.status)
             return(
-            <div className={`flex flex-col ${statusInfo?.color}`}>
-                <button className={`${statusInfo?.color}`}></button>
-                <span>{item.titulo}</span>
+            <div key={item.id} className={`flex items-center justify-between p-4 rounded-xl ${statusInfo?.color}`}>
+                <div className="flex items-center gap-2">
+                    <input type="checkbox"></input>
+                    <span>{item.titulo}</span>
+                </div>
+                <a href='#' className="text-sm text-blue-500"><Details/></a>
             </div>
             )
         })
