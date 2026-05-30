@@ -5,6 +5,7 @@ import Trash from "./assets/trash-2.svg?react"
 import { Card } from "./components/Card";
 import { useState } from "react";
 import { TASKS } from "./constants/Task";
+import { Button } from "./components/Button";
 
 export default function App() {
   const [task, setTask] = useState(TASKS);
@@ -12,21 +13,30 @@ export default function App() {
   return (
     <div className="flex w-screen h-screen">
       <Sidebar/>
-      <div className="w-full p-30">
+      <div className="w-full px-20 py-15">
         <div className="flex flex-col gap-2">
           <span className="text-sm">Inicio</span>
           <div className="flex justify-between items-center font-semibold">
             <span className="text-lg">Inicio</span>
             <div className="flex gap-2">
-              <button className="flex items-center gap-2 px-4 py-2 rounded-md">Deletar tarefa<Trash/></button>
-              <button className="flex items-center gap-2 bg-[#00ADB5] px-4 py-2 rounded-md">Nova tarefa<Add/></button>
+              <Button className="flex items-center gap-2 px-4 py-2 rounded-md">Deletar tarefa<Trash/></Button>
+              <Button className="flex items-center gap-2 bg-[#00ADB5] px-4 py-2 rounded-md">Nova tarefa<Add/></Button>
             </div>
           </div>
         </div>
-        <Card>
-          <Task task={task} time="manha"/>
-          <Task task={task} time="tarde"/>
-          <Task task={task} time="noite"/>
+        <Card className="mt-4">
+            <div className="flex flex-col gap-2">
+              <span className="text-lg font-semibold">Manhã</span>
+              <Task task={task} time="manha"/>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-lg font-semibold">Tarde</span>
+              <Task task={task} time="tarde"/>
+            </div>
+            <div className="flex flex-col gap-2">
+              <span className="text-lg font-semibold">Noite</span>
+              <Task task={task} time="noite"/>
+            </div>
         </Card>
       </div>
     </div>
