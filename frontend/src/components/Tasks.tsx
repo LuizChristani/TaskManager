@@ -70,27 +70,27 @@ export const Tasks = () => {
                     </div>
                 </div>
             </div>
-            <Card className="flex flex-col gap-4">
-                <div className="space-y-2">
-                    <TaskSeparator title="Manhã" icon={Sun}/>
+            <Card className="flex flex-col gap-4 mt-3">
+                <TaskSeparator title="Manhã" icon={Sun}/>
+                <div className="space-y-2 h-50 overflow-y-auto">
                     {filterMorning.map((item) => (
                         <div key={item.id}>
                             <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
                         </div>
                     ))}
                 </div>
-                <div className="space-y-2">
-                    <TaskSeparator title="Tarde" icon={Sun}/>
+                <TaskSeparator title="Tarde" icon={Sun}/>
+                <div className="space-y-2 h-50 overflow-y-auto">
                     {filterLate.map((item) => (
                         <div key={item.id}>
                             <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
                         </div>
                     ))}
                 </div>
-                <div className="space-y-2">
-                    <TaskSeparator title="Tarde" icon={Sun}/>
+                <TaskSeparator title="Tarde" icon={Sun}/>
+                <div className="space-y-2 h-50 overflow-y-auto">
                     {filterEvening.map((item) => (
-                        <div key={item.id}>
+                        <div key={item.id} className="">
                             <TaskItem key={item.id} task={item} handlerTaksClick={handlerTaksClick}/>
                         </div>
                     ))}

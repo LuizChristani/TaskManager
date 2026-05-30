@@ -3,7 +3,7 @@ import { Tasks } from "./components/Tasks";
 
 export default function App() {  
     return (
-    <div className="flex w-screen h-screen">
+    <div className="flex h-screen">
       <Sidebar/>
       <Tasks/>
       </div>

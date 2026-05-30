@@ -12,7 +12,7 @@ export const Sidebar = () => {
     const [isClickedButton, setIsClickedButton] = useState("");
 
     return (
-        <div className="flex flex-col h-screen justify-between bg-[#FFFFFF]">
+        <div className="flex flex-col justify-between bg-[#FFFFFF]">
             <div className="flex flex-col mt-2">
                 <SectionHeader 
                     title="Task Manager" 
