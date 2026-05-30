@@ -14,12 +14,12 @@ const Time = {
 type Time = typeof Time[keyof typeof Time]
 
 export const Tasks = () => {
-    const [tasks, setTasks] = useState<TaskItemProps[]>(TASKS)
-
-    const filterMorning = tasks.filter((item) => item.time.toLowerCase() === Time.Manha)
-    const filterLate = tasks.filter((item) => item.time.toLowerCase() === Time.Tarde)
-    const filterEvening = tasks.filter((item) => item.time.toLowerCase() === Time.Noite)
-
+    const [tasks, setTasks] = useState<TaskItemProps[]>(TASKS);
+    
+    const filterMorning = tasks.filter((item) => item.time.toLowerCase() === Time.Manha);
+    const filterLate = tasks.filter((item) => item.time.toLowerCase() === Time.Tarde);
+    const filterEvening = tasks.filter((item) => item.time.toLowerCase() === Time.Noite);
+    
     const handlerTaksClick = (taskId: number) => {
         const newTasks = tasks.map((task) => {
             if(task.id !== taskId){

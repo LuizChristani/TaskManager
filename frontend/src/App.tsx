@@ -4,8 +4,12 @@ import Add from "./assets/Add.svg?react"
 import Trash from "./assets/trash-2.svg?react"
 import { Card } from "./components/Card";
 import { Button } from "./components/Button";
+import { useState } from "react";
+import { AddTaskDialog } from "./components/AddTaskDialog";
 
-export default function App() {
+export default function App() {  
+  const [isOpenDialog, setIsOpenDialog] = useState(false)
+  
   return (
     <div className="flex w-screen h-screen">
       <Sidebar/>
@@ -22,9 +26,13 @@ export default function App() {
               </Button>
               <Button 
                 color="primary" 
-                size="large">
+                size="large"
+                onClick={() => setIsOpenDialog(true)}
+                >
+                
                   Nova tarefa<Add/>
               </Button>
+              <AddTaskDialog handleClose={() => setIsOpenDialog(false)} open={isOpenDialog} />
             </div>
           </div>
         </div>
