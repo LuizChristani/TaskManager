@@ -31,6 +31,6 @@ export const Button = ({children, color="primary", size="small", className, ...r
         }
     })
     return (
-        <button className={`${button({color, size, disabled: rest.disabled, className})}`}>{children}</button>
+        <button className={`${button({color, size, disabled: rest.disabled, className})}`} {...rest}>{children}</button>
     )
 }
