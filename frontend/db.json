@@ -1,27 +1,6 @@
 {
   "tasks": [
     {
-      "id": "89ed06fd-61d5-4840-bee7-6a19b212e820",
-      "titulo": "Ler",
-      "time": "Manha",
-      "description": "Ler livro",
-      "status": "concluida"
-    },
-    {
-      "id": "89ed06fd-61d5-4840-bee7-6a19b212e821",
-      "titulo": "Ler",
-      "time": "Manha",
-      "description": "Ler livro",
-      "status": "concluida"
-    },
-    {
-      "id": "89ed06fd-61d5-4840-bee7-6a19b212e822",
-      "titulo": "Ler",
-      "time": "Manha",
-      "description": "Ler livro",
-      "status": "concluida"
-    },
-    {
       "id": "89ed06fd-61d5-4840-bee7-6a19b212e823",
       "titulo": "Ler",
       "time": "Tarde",
@@ -62,20 +41,6 @@
       "time": "Noite",
       "description": "Ler livro",
       "status": "concluida"
-    },
-    {
-      "id": "z_ZL6dYisiE",
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha"
-    },
-    {
-      "id": "3K76OFqF21E",
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

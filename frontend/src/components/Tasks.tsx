@@ -33,7 +33,20 @@ export const Tasks = () => {
         getTasks()
     },[])
 
+    const handlerTrashClick = async(taskId: string) => {
+        const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            method: "DELETE"
+        })
+
+        if (!response.ok){
+            return
+        }
+        const newTask = tasks.filter((item) => item.id !== taskId)
+        setTasks(newTask)
+    }
+
     const handlerTasksClick = (taksId: string) => {
+
         const newTasks = tasks?.map((task) => {
             if(task.id !== taksId){
                 return task
@@ -76,8 +89,9 @@ export const Tasks = () => {
                     <div className="flex gap-2">
                         <Button 
                             color="ghost" 
-                            size="large">
-                            Deletar tarefa<TrashIcon/>
+                            size="large"
+                            >
+                            Limpar tarefa<TrashIcon/>
                         </Button>
                         <Button 
                             color="primary" 
@@ -94,7 +108,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterMorning.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
                         </div>
                     ))}
                 </div>
@@ -102,7 +116,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterLate.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
                         </div>
                     ))}
                 </div>
@@ -110,7 +124,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterEvening.map((item) => (
                         <div key={item.id} className="">
-                            <TaskItem key={item.id} task={item} handlerTasksClick={handlerTasksClick}/>
+                            <TaskItem key={item.id} task={item} handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
                         </div>
                     ))}
                 </div>
