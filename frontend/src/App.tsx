@@ -19,8 +19,16 @@ export default function App() {
           <div className="flex justify-between items-center font-semibold">
             <span className="text-lg">Inicio</span>
             <div className="flex gap-2">
-              <Button className="flex items-center gap-2 px-4 py-2 rounded-md">Deletar tarefa<Trash/></Button>
-              <Button className="flex items-center gap-2 bg-[#00ADB5] px-4 py-2 rounded-md">Nova tarefa<Add/></Button>
+              <Button 
+                color="ghost" 
+                size="large">
+                  Deletar tarefa<Trash/>
+              </Button>
+              <Button 
+                color="primary" 
+                size="large">
+                  Nova tarefa<Add/>
+              </Button>
             </div>
           </div>
         </div>
