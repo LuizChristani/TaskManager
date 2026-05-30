@@ -6,9 +6,9 @@ import LoaderIcon from "../assets/loader.svg?react"
 export const TaskItem = ({ task, handlerTaksClick }: TaskProp) => {
 
     const getStatusClasses = (status: string) => {
-        if (status === StatusTask.Concluida) return "bg-[#00ADB51A] bg-opacity-50"
-        if (status === StatusTask.Progresso) return "bg-[#FFAA041A] bg-opacity-50"
-        if (status === StatusTask.Pendente) return "bg-[#35383E0D] bg-opacity-50"
+        if (status === StatusTask.Concluida) return "bg-[#00ADB51A] bg-opacity-70"
+        if (status === StatusTask.Progresso) return "bg-[#FFAA041A] bg-opacity-70"
+        if (status === StatusTask.Pendente) return "bg-[#35383E0D] bg-opacity-70"
     }
 
     const handleCheckboxClick = () => {
@@ -23,7 +23,7 @@ export const TaskItem = ({ task, handlerTaksClick }: TaskProp) => {
     }
 
     return (
-        <div className={`flex gap-2 ${getStatusClasses(task.status)}`}>
+        <div className={`flex gap-2 p-2 rounded-md ${getStatusClasses(task.status)}`}>
             <label
             className={`relative flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg ${getStatusClasses(task.status)}`}
             >

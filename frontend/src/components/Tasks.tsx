@@ -40,28 +40,31 @@ export const Tasks = () => {
     }
 
     return (
-        <div className="flex flex-col gap-2">
-            <TaskSeparator title="Manha" icon={Sun}/>
-            {filterMorning.map((item) => (
-                <div key={item.id}>
-                    <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
-                </div>
-            ))}
-
-            <TaskSeparator title="Tarde" icon={Sun}/>
-            {filterLate.map((item) => (
-                <div key={item.id}>
-                    <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
-                </div>
-            ))}
-
-            <TaskSeparator title="Tarde" icon={Sun}/>
-            {filterEvening.map((item) => (
-                <div key={item.id}>
-                    <TaskItem key={item.id} task={item} handlerTaksClick={handlerTaksClick}/>
-                </div>
-            ))}
-
+        <div className="flex flex-col gap-4">
+            <div className="space-y-2">
+                <TaskSeparator title="Manha" icon={Sun}/>
+                {filterMorning.map((item) => (
+                    <div key={item.id}>
+                        <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
+                    </div>
+                ))}
+            </div>
+            <div className="space-y-2">
+                <TaskSeparator title="Tarde" icon={Sun}/>
+                {filterLate.map((item) => (
+                    <div key={item.id}>
+                        <TaskItem key={item.id} task={item}  handlerTaksClick={handlerTaksClick}/>
+                    </div>
+                ))}
+            </div>
+            <div className="space-y-2">
+                <TaskSeparator title="Tarde" icon={Sun}/>
+                {filterEvening.map((item) => (
+                    <div key={item.id}>
+                        <TaskItem key={item.id} task={item} handlerTaksClick={handlerTaksClick}/>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
