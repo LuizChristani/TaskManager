@@ -1,9 +1,8 @@
 import { TaskSeparator } from "./TaskSeparator"
 import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
-import { TASKS } from "../constants/Task"
 import { useEffect, useState } from "react"
-import { StatusTask, type TaskItemProps } from "../types/Task"
+import { StatusTask, type TaskItemProps, type TaskProp } from "../types/Task"
 import { AddTaskDialog } from "./AddTaskDialog"
 import { Button } from "./Button"
 import AppIcon from "../assets/Add.svg?react"
@@ -34,9 +33,9 @@ export const Tasks = () => {
         getTasks()
     },[])
 
-    const handlerTasksClick = (taskId: number) => {
+    const handlerTasksClick = (taksId: string) => {
         const newTasks = tasks?.map((task) => {
-            if(task.id !== taskId){
+            if(task.id !== taksId){
                 return task
             }
             
@@ -53,7 +52,14 @@ export const Tasks = () => {
         setTasks(newTasks)
     }
 
-    const handleAddTask = (task: TaskItemProps) => {
+    const handleAddTask = async(task: TaskItemProps) => {
+        const response = await fetch("http://localhost:3000/tasks", {
+            method: "POST",
+            body: JSON.stringify(task)
+        })
+        if (!response.ok){
+            return
+        }
         setTasks((prev) => [...prev, task])
         setIsOpenDialog(false)
     }
