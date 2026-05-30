@@ -2,7 +2,7 @@ import { TaskSeparator } from "./TaskSeparator"
 import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
 import { TASKS } from "../constants/Task"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { StatusTask, type TaskItemProps } from "../types/Task"
 import { AddTaskDialog } from "./AddTaskDialog"
 import { Button } from "./Button"
@@ -18,11 +18,24 @@ const Time = {
 type Time = typeof Time[keyof typeof Time]
 
 export const Tasks = () => {
-    const [tasks, setTasks] = useState<TaskItemProps[]>(TASKS);
+    const [tasks, setTasks] = useState<TaskItemProps[]>([]);
     const [isOpenDialog, setIsOpenDialog] = useState(false)
     
+
+    useEffect(() => {
+        const getTasks = async () => {
+            const response = await fetch("http://localhost:3000/tasks", {
+                method: "GET",
+            })
+            const tasks = await response.json()
+            setTasks(tasks)
+        }
+
+        getTasks()
+    },[])
+
     const handlerTasksClick = (taskId: number) => {
-        const newTasks = tasks.map((task) => {
+        const newTasks = tasks?.map((task) => {
             if(task.id !== taskId){
                 return task
             }
