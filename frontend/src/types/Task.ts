@@ -1,5 +1,12 @@
 export interface TaskItemProps {
-    id: string,
+    id: string | null,
+    titulo: string,
+    detalhes: string,
+    status: string,
+    time: string
+}
+
+export interface TaskItemRequest {
     titulo: string,
     detalhes: string,
     status: string,
@@ -12,8 +19,8 @@ export interface TaskProps {
 
 export interface TaskProp {
     task: TaskItemProps
-    handlerTasksClick: (taskId: string) => void;
-    onDeleteSuccess: (taskId: string) => void;
+    handlerTasksClick: (taskId: string | null) => void;
+    onDeleteSuccess: (taskId: string | null) => void;
 }
 
 export const StatusTask = {

@@ -2,7 +2,7 @@ import { TaskSeparator } from "./TaskSeparator"
 import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
 import { useEffect, useState } from "react"
-import { StatusTask, type StatusTaskType, type TaskItemProps } from "../types/Task"
+import { StatusTask, type StatusTaskType, type TaskItemProps, type TaskItemRequest } from "../types/Task"
 import { AddTaskDialog } from "./AddTaskDialog"
 import { Button } from "./Button"
 import AppIcon from "../assets/Add.svg?react"
@@ -33,13 +33,16 @@ export const Tasks = () => {
         getTasks()
     },[])
 
-    const handleDeleteClick = async(taskId: string) => {
-        const newTask = tasks.filter((item) => item.id !== taskId)
-        setTasks(newTask)
+    const handleDeleteClick = async(taskId: string | null) => {
+        if(!taskId) return;
+        const newTask = tasks.filter((item) => item.id !== taskId);
+        setTasks(newTask);
     }
 
-    const handlerTasksClick = async(taskId: string) => {
-        const findTask = tasks.find((item) => item.id === taskId)
+    const handlerTasksClick = async(taskId: string | null) => {
+        if (!taskId) return;
+        
+        const findTask = tasks.find((item) => item.id === taskId);
         if (!findTask) return;
 
         let newStatus: StatusTaskType;
@@ -82,14 +85,7 @@ export const Tasks = () => {
         setTasks(newTasks)
     }
 
-    const handleAddTask = async(task: TaskItemProps) => {
-        const response = await fetch("http://localhost:3000/tasks", {
-            method: "POST",
-            body: JSON.stringify(task)
-        })
-        if (!response.ok){
-            return
-        }
+    const onSuccessAddTask = async(task: TaskItemProps) => {
         setTasks((prev) => [...prev, task])
         setIsOpenDialog(false)
     }
@@ -145,7 +141,7 @@ export const Tasks = () => {
                         </div>
                     ))}
                 </div>
-                <AddTaskDialog handleSubmit={handleAddTask} handleClose={() => setIsOpenDialog(false)} open={isOpenDialog} />
+                <AddTaskDialog handleClose={() => setIsOpenDialog(false)} open={isOpenDialog} onSaveTaskSuccess={onSuccessAddTask}/>
             </Card>
         </div>
     )

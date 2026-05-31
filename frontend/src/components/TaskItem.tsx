@@ -25,7 +25,9 @@ export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp)
         return StatusTask.Pendente
     }
 
-    const handleDeleteClick = async(taskId: string) =>{
+    const handleDeleteClick = async(taskId: string | null) =>{
+        if (!taskId) return;
+
         setDeleteIsLoading(true)
         const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
             method: "DELETE"
