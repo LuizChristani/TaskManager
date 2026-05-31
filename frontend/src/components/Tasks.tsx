@@ -2,7 +2,7 @@ import { TaskSeparator } from "./TaskSeparator"
 import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
 import { useEffect, useState } from "react"
-import { StatusTask, type StatusTaskType, type TaskItemProps, type TaskItemRequest } from "../types/Task"
+import { StatusTask, type StatusTaskType, type TaskItemProps } from "../types/Task"
 import { AddTaskDialog } from "./AddTaskDialog"
 import { Button } from "./Button"
 import AppIcon from "../assets/Add.svg?react"
@@ -41,7 +41,7 @@ export const Tasks = () => {
 
     const handlerTasksClick = async(taskId: string | null) => {
         if (!taskId) return;
-        
+
         const findTask = tasks.find((item) => item.id === taskId);
         if (!findTask) return;
 
