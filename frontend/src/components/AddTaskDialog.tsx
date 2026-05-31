@@ -22,10 +22,14 @@ export const AddTaskDialog = ({open, handleClose, onSaveTaskSuccess} : TaskDialo
     const [description, setDescription] = useState("")
     const [loadingTask, setLoadingTask] = useState(false)
 
-    const handlerSaveTask = async(task: TaskItemProps) => {
+    const handlerSaveTask = async(e: React.MouseEvent, task: TaskItemProps) => {
+        e.preventDefault()
         setLoadingTask(true)
         const response = await fetch("http://localhost:3000/tasks", {
             method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(task)
         })
         if (!response.ok){
@@ -49,7 +53,7 @@ export const AddTaskDialog = ({open, handleClose, onSaveTaskSuccess} : TaskDialo
                             <Input label="Descrição" placeholder="Descreva a tarefa" onChange={(e) => setDescription(e.target.value)} value={description}></Input>
                             <div className="flex w-full space-x-2">
                                 <Button type="button" color="secondary" size="large" className="w-full" onClick={handleClose}>Cancelar</Button>
-                                <Button type="button" size="large" className="w-full" onClick={() => handlerSaveTask({
+                                <Button type="button" size="large" className="w-full" onClick={(e) => handlerSaveTask(e, {
                                     id: null,
                                     titulo: title,
                                     detalhes: description,

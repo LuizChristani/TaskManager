@@ -1,46 +1,11 @@
 {
   "tasks": [
     {
+      "id": "2ZLHPOwqzZo",
       "titulo": "teste",
       "detalhes": "teste",
       "status": "pendente",
-      "time": "manha",
-      "id": "ZBBKlY1mF6Y"
-    },
-    {
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha",
-      "id": "lLNI1oeCBP8"
-    },
-    {
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha",
-      "id": "Joia-WjC-_E"
-    },
-    {
-      "titulo": "add",
-      "detalhes": "add",
-      "status": "pendente",
-      "time": "manha",
-      "id": "sWpGKuXMr08"
-    },
-    {
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha",
-      "id": "b0jJnbU6sps"
-    },
-    {
-      "titulo": "teste",
-      "detalhes": "teste",
-      "status": "pendente",
-      "time": "manha",
-      "id": "9SWk_TbVQp0"
+      "time": "manha"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

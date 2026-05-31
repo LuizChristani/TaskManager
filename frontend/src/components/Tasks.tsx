@@ -103,12 +103,14 @@ export const Tasks = () => {
                         <Button 
                             color="ghost" 
                             size="large"
+                            type="button"
                             >
                             Limpar tarefa<TrashIcon/>
                         </Button>
                         <Button 
                             color="primary" 
                             size="large"
+                            type="button"
                             onClick={() => setIsOpenDialog(true)}
                             >
                             Nova tarefa<AppIcon/>

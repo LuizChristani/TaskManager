@@ -3,7 +3,10 @@ export const Menu = {
     Task: "task",
 } as const
 
+export type MenuType =
+  typeof Menu[keyof typeof Menu];
+
 export interface SidebarProps{
-    sidebarOption: string
+    sidebarOpt: string
     isClickedOption: (option: string) => void
 }
