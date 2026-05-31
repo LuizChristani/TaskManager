@@ -4,18 +4,13 @@ import { Tasks } from "./components/Tasks";
 import { Menu } from "./types/Sidebar";
 
 export default function App() {
-    const [clickSidebar, setClickSidebar] = useState("home")
-    console.log(clickSidebar)
-    const isClickedOption = (option: string) => {
-      setClickSidebar(option)
-    }
-    console.log(clickSidebar)
+    const [opt, setOpt] = useState<string>(Menu.Home)
 
     return (
     <div className="flex h-screen">
-      <Sidebar sidebarOption={clickSidebar} isClickedOption={isClickedOption}/>
-        {clickSidebar === Menu.Task && <Tasks/>}
-        {clickSidebar === Menu.Home && null}
+      <Sidebar sidebarOpt={opt} isClickedOption={setOpt}/>
+        {opt === Menu.Task && <Tasks/>}
+        {opt === Menu.Home && null}
       </div>
   )
 }
