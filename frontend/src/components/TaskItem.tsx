@@ -2,8 +2,11 @@ import { StatusTask, type TaskProp } from "../types/Task";
 import CheckIcon from "../assets/check.svg?react"
 import LoaderIcon from "../assets/loader.svg?react"
 import TrashIcon from "../assets/trash-2.svg?react"
+import { Button } from "./Button";
+import { useState } from "react";
 
-export const TaskItem = ({ task, handlerTasksClick, handleTrashClick }: TaskProp) => {
+export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp) => {
+    const [deleteIsLoading, setDeleteIsLoading] = useState(false)
 
     const getStatusClasses = (status: string) => {
         if (status === StatusTask.Concluida) return "bg-[#00ADB51A] bg-opacity-70"
@@ -20,6 +23,20 @@ export const TaskItem = ({ task, handlerTasksClick, handleTrashClick }: TaskProp
         }
 
         return StatusTask.Pendente
+    }
+
+    const handleDeleteClick = async(taskId: string) =>{
+        setDeleteIsLoading(true)
+        const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            method: "DELETE"
+        })
+
+        if (!response.ok){
+            setDeleteIsLoading(false)
+            return
+        }
+        setDeleteIsLoading(false)
+        onDeleteSuccess(taskId)
     }
 
     return (
@@ -42,7 +59,7 @@ export const TaskItem = ({ task, handlerTasksClick, handleTrashClick }: TaskProp
                 </label>
                 {task.titulo}
             </div>
-            <button onClick={() => handleTrashClick(task.id)}><TrashIcon/></button>
+            {!deleteIsLoading ? (<Button color="ghost" onClick={() => handleDeleteClick(task.id)}><TrashIcon/></Button>) : <LoaderIcon/>}
    
         </div>
     )

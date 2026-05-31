@@ -13,7 +13,7 @@ export interface TaskProps {
 export interface TaskProp {
     task: TaskItemProps
     handlerTasksClick: (taskId: string) => void;
-    handleTrashClick:(taskId: string) => void;
+    onDeleteSuccess: (taskId: string) => void;
 }
 
 export const StatusTask = {

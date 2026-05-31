@@ -19,7 +19,6 @@ type Time = typeof Time[keyof typeof Time]
 export const Tasks = () => {
     const [tasks, setTasks] = useState<TaskItemProps[]>([]);
     const [isOpenDialog, setIsOpenDialog] = useState(false)
-    
 
     useEffect(() => {
         const getTasks = async () => {
@@ -33,20 +32,12 @@ export const Tasks = () => {
         getTasks()
     },[])
 
-    const handlerTrashClick = async(taskId: string) => {
-        const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
-            method: "DELETE"
-        })
-
-        if (!response.ok){
-            return
-        }
+    const handleDeleteClick = async(taskId: string) => {
         const newTask = tasks.filter((item) => item.id !== taskId)
         setTasks(newTask)
     }
 
     const handlerTasksClick = (taksId: string) => {
-
         const newTasks = tasks?.map((task) => {
             if(task.id !== taksId){
                 return task
@@ -108,7 +99,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterMorning.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} onDeleteSuccess={handleDeleteClick}/>
                         </div>
                     ))}
                 </div>
@@ -116,7 +107,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterLate.map((item) => (
                         <div key={item.id}>
-                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
+                            <TaskItem key={item.id} task={item}  handlerTasksClick={handlerTasksClick} onDeleteSuccess={handleDeleteClick}/>
                         </div>
                     ))}
                 </div>
@@ -124,7 +115,7 @@ export const Tasks = () => {
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterEvening.map((item) => (
                         <div key={item.id} className="">
-                            <TaskItem key={item.id} task={item} handlerTasksClick={handlerTasksClick} handleTrashClick={handlerTrashClick}/>
+                            <TaskItem key={item.id} task={item} handlerTasksClick={handlerTasksClick}  onDeleteSuccess={handleDeleteClick}/>
                         </div>
                     ))}
                 </div>
