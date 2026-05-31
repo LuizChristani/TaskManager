@@ -61,13 +61,16 @@ export const Tasks = () => {
 
         const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
             method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+            },
             body: JSON.stringify(body)
         })
 
         if (!response.ok){
             return
         }
-
+        
         const newTasks = tasks?.map((task) => {
             if(task.id !== taskId){
                 return task

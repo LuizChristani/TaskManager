@@ -1,11 +1,95 @@
 {
   "tasks": [
     {
-      "id": "2ZLHPOwqzZo",
+      "id": "Hl7EpWqhZeU",
       "titulo": "teste",
       "detalhes": "teste",
-      "status": "pendente",
+      "status": "concluida",
+      "time": "noite"
+    },
+    {
+      "id": "ATOOMm2GqVk",
+      "titulo": "teste2",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "noite"
+    },
+    {
+      "id": "PG5DdlUgNmU",
+      "titulo": "teste2",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "tarde"
+    },
+    {
+      "id": "UoFWzol03UQ",
+      "titulo": "aa",
+      "detalhes": "",
+      "status": "concluida",
       "time": "manha"
+    },
+    {
+      "id": "23eviPWAFt8",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "manha"
+    },
+    {
+      "id": "njeT5svOXRU",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "manha"
+    },
+    {
+      "id": "i8px_i2o-mk",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "manha"
+    },
+    {
+      "id": "6erjXvMc9Wc",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "manha"
+    },
+    {
+      "id": "rsF35BQ8tqk",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "manha"
+    },
+    {
+      "id": "JhuBoDvqFfM",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "tarde"
+    },
+    {
+      "id": "3quddp6xqBA",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "noite"
+    },
+    {
+      "id": "Mz-8qgrabG8",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "noite"
+    },
+    {
+      "id": "jdWwrcMzNQY",
+      "titulo": "teste",
+      "detalhes": "teste",
+      "status": "concluida",
+      "time": "noite"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

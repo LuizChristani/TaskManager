@@ -36,8 +36,9 @@ export const AddTaskDialog = ({open, handleClose, onSaveTaskSuccess} : TaskDialo
             setLoadingTask(false)
             return
         }
+        const data = await response.json()
         setLoadingTask(false)
-        onSaveTaskSuccess(task)
+        onSaveTaskSuccess(data)
     }
 
     return (
