@@ -59,7 +59,7 @@ export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp)
                 </label>
                 {task.titulo}
             </div>
-            {!deleteIsLoading ? (<Button color="ghost" onClick={() => handleDeleteClick(task.id)}><TrashIcon/></Button>) : <LoaderIcon/>}
+           <Button color="ghost" onClick={() => handleDeleteClick(task.id)} disabled={deleteIsLoading}>{!deleteIsLoading ? <TrashIcon/> : <LoaderIcon className="animate-spin"/> }</Button>
    
         </div>
     )

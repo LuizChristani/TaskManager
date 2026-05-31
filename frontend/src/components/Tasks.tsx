@@ -55,7 +55,7 @@ export const Tasks = () => {
         let body = {
             "status": newStatus
         }
-        
+
         const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
             method: "PATCH",
             body: JSON.stringify(body)
@@ -137,7 +137,7 @@ export const Tasks = () => {
                         </div>
                     ))}
                 </div>
-                <TaskSeparator title="Tarde" icon={Sun}/>
+                <TaskSeparator title="Noite" icon={Sun}/>
                 <div className="space-y-2 h-50 overflow-y-auto">
                     {filterEvening.map((item) => (
                         <div key={item.id} className="">
