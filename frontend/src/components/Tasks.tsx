@@ -2,12 +2,13 @@ import { TaskSeparator } from "./TaskSeparator"
 import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
 import { useEffect, useState } from "react"
-import { StatusTask, type TaskItemProps, type TaskProp } from "../types/Task"
+import { StatusTask, type StatusTaskType, type TaskItemProps } from "../types/Task"
 import { AddTaskDialog } from "./AddTaskDialog"
 import { Button } from "./Button"
 import AppIcon from "../assets/Add.svg?react"
 import TrashIcon from "../assets/trash-2.svg?react"
 import { Card } from "./Card"
+
 const Time = {
     Manha: "manha",
     Tarde: "tarde",
@@ -37,9 +38,35 @@ export const Tasks = () => {
         setTasks(newTask)
     }
 
-    const handlerTasksClick = (taksId: string) => {
+    const handlerTasksClick = async(taskId: string) => {
+        const findTask = tasks.find((item) => item.id === taskId)
+        if (!findTask) return;
+
+        let newStatus: StatusTaskType;
+
+        if(findTask.status === StatusTask.Pendente){
+            newStatus = StatusTask.Progresso;
+        } else if (findTask.status === StatusTask.Progresso){
+            newStatus = StatusTask.Concluida;
+        } else {
+            newStatus = StatusTask.Pendente
+        }
+
+        let body = {
+            "status": newStatus
+        }
+        
+        const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            method: "PATCH",
+            body: JSON.stringify(body)
+        })
+
+        if (!response.ok){
+            return
+        }
+
         const newTasks = tasks?.map((task) => {
-            if(task.id !== taksId){
+            if(task.id !== taskId){
                 return task
             }
             
@@ -52,7 +79,6 @@ export const Tasks = () => {
             }
             return {...task, status: StatusTask.Pendente}
         })
-
         setTasks(newTasks)
     }
 

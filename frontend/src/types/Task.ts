@@ -21,3 +21,6 @@ export const StatusTask = {
   Progresso: "progresso",
   Concluida: "concluida",
 } as const;
+
+export type StatusTaskType =
+  typeof StatusTask[keyof typeof StatusTask];

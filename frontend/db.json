@@ -5,21 +5,21 @@
       "titulo": "Ler",
       "time": "Tarde",
       "description": "Ler livro",
-      "status": "concluida"
+      "status": "progresso"
     },
     {
       "id": "89ed06fd-61d5-4840-bee7-6a19b212e825",
       "titulo": "Ler",
       "time": "Tarde",
       "description": "Ler livro",
-      "status": "concluida"
+      "status": "progresso"
     },
     {
       "id": "89ed06fd-61d5-4840-bee7-6a19b212e826",
       "titulo": "Ler",
       "time": "Tarde",
       "description": "Ler livro",
-      "status": "concluida"
+      "status": "pendente"
     },
     {
       "id": "89ed06fd-61d5-4840-bee7-6a19b212e827",
