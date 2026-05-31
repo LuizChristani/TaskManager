@@ -60,7 +60,7 @@ export const AddTaskDialog = ({open, handleClose, onSaveTaskSuccess} : TaskDialo
                                     detalhes: description,
                                     status: StatusTask.Pendente,
                                     time: time
-                                })}>{!loadingTask ? "Salvar" : <LoaderIcon className="animate-spin"/>}</Button>
+                                })}>{loadingTask && <LoaderIcon className="animate-spin"/>} Salvar</Button>
                             </div>
                         </Card>
                     </div>, document.body)}
