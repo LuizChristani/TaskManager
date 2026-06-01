@@ -29,10 +29,6 @@ export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp)
         return StatusTask.Pendente
     }
 
-    const handleDetailsClick = () => {
-        navigate(`/tasks/${task.id}`)
-    }
-
     const handleDeleteClick = async(taskId: string | null) =>{
         if (!taskId) return;
 
