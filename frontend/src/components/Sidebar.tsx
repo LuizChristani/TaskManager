@@ -24,16 +24,16 @@ export const Sidebar = () => {
                     <div className="flex flex-col gap-4">
                         <Link to={"/"}>
                             <Button type="button" color="ghost" 
-                                className={`flex items-center gap-2 transition duration-500 ${sidebarClick === Menu.Home && "bg-[#9ef4f8]" }`}
+                                className={`flex w-full items-center gap-2 transition duration-500 ${sidebarClick === Menu.Home && "bg-[#9ef4f8]" }`}
                                 onClick={() => setSidebarClick(Menu.Home)}>
                                     <HomeIcon/>Início
                             </Button>
                         </Link>
                         <Link to={"/tasks"}>
-                            <Button 
+                            <Button
                                 type="button" 
                                 color="ghost" 
-                                className={`flex items-center gap-2 transition duration-500 ${sidebarClick === Menu.Task && "bg-[#9ef4f8]" }`} 
+                                className={`flex w-full items-center gap-2 transition duration-500 ${sidebarClick === Menu.Task && "bg-[#9ef4f8]" }`} 
                                 onClick={() => setSidebarClick(Menu.Task)}>
                                     <ListChecks/>Minhas Tarefas
                             </Button>

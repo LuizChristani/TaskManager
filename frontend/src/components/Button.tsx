@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 export const Button = ({children, color="primary", size="small", className, ...rest}: ButtonProps) => {
     const button = tv({
-        base: `flex items-center justify-center gap-2 rounded-md px-3 font-semibold transition hover:opacity-75`,
+        base: `flex items-center justify-start gap-2 rounded-md px-3 font-semibold transition hover:opacity-75`,
         variants: {
             color: {
                 primary: "bg-[#00ADB5] text-white",
