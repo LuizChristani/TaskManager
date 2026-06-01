@@ -1,13 +1,13 @@
-import { TaskSeparator } from "./TaskSeparator"
-import { TaskItem } from "./TaskItem"
 import Sun from "../assets/sun.svg?react"
 import { useEffect, useState } from "react"
 import { StatusTask, type StatusTaskType, type TaskItemProps } from "../types/Task"
-import { AddTaskDialog } from "./AddTaskDialog"
-import { Button } from "./Button"
 import AppIcon from "../assets/Add.svg?react"
 import TrashIcon from "../assets/trash-2.svg?react"
-import { Card } from "./Card"
+import { Button } from "../components/Button"
+import { Card } from "../components/Card"
+import { TaskSeparator } from "../components/TaskSeparator"
+import { TaskItem } from "../components/TaskItem"
+import { AddTaskDialog } from "../components/AddTaskDialog"
 
 const Time = {
     Manha: "manha",
@@ -97,11 +97,11 @@ export const Tasks = () => {
     const filterLate = tasks.filter((item) => item.time.toLowerCase() === Time.Tarde);
     const filterEvening = tasks.filter((item) => item.time.toLowerCase() === Time.Noite);
     return (
-        <div className="w-full px-20 py-15">
+        <div className="w-full px-20 py-10">
             <div className="flex flex-col gap-2">
-                <span className="text-sm">Inicio</span>
+                <span className="text-sm">Início</span>
                 <div className="flex justify-between items-center font-semibold">
-                    <span className="text-lg">Inicio</span>
+                    <span className="text-lg">Início </span>
                     <div className="flex gap-2">
                         <Button 
                             color="ghost" 

@@ -4,15 +4,14 @@ import ListChecks from "../assets/list-checks.svg?react"
 import { Menu, type SidebarProps } from "../types/Sidebar"
 import { Button } from "./Button"
 import { SectionHeader } from "./SectionHeader"
+import { Link } from "react-router-dom"
 
-export const Sidebar = ({sidebarOpt, isClickedOption}: SidebarProps) => {
+export const Sidebar = () => {
+    const [sidebarClick, setSidebarClick] = useState("home")
 
-    const handlerClicked = (option: string) => {
-        isClickedOption(option)
-    }
 
     return (
-        <div className="flex flex-col justify-between bg-[#FFFFFF] max-w-50">
+        <div className="flex flex-col justify-between bg-[#FFFFFF] h-screen max-w-50">
             <div className="flex flex-col mt-2">
                 <SectionHeader 
                     title="Task Manager" 
@@ -23,8 +22,22 @@ export const Sidebar = ({sidebarOpt, isClickedOption}: SidebarProps) => {
                 />
                 <div className="flex justify-center p-4 mt-2">
                     <div className="flex flex-col gap-4">
-                        <Button type="button" color="ghost" className={`flex items-center gap-2 transition duration-500 ${sidebarOpt === Menu.Home && "bg-[#9ef4f8]" }`} onClick={() => handlerClicked(Menu.Home)}><HomeIcon/>Início</Button>
-                        <Button type="button" color="ghost" className={`flex items-center gap-2 transition duration-500 ${sidebarOpt === Menu.Task && "bg-[#9ef4f8]" }`} onClick={() => handlerClicked(Menu.Task)}><ListChecks/>Minhas Tarefas</Button>
+                        <Link to={"/"}>
+                            <Button type="button" color="ghost" 
+                                className={`flex items-center gap-2 transition duration-500 ${sidebarClick === Menu.Home && "bg-[#9ef4f8]" }`}
+                                onClick={() => setSidebarClick(Menu.Home)}>
+                                    <HomeIcon/>Início
+                            </Button>
+                        </Link>
+                        <Link to={"/tasks"}>
+                            <Button 
+                                type="button" 
+                                color="ghost" 
+                                className={`flex items-center gap-2 transition duration-500 ${sidebarClick === Menu.Task && "bg-[#9ef4f8]" }`} 
+                                onClick={() => setSidebarClick(Menu.Task)}>
+                                    <ListChecks/>Minhas Tarefas
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </div>

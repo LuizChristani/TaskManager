@@ -2,10 +2,14 @@ import { StatusTask, type TaskProp } from "../types/Task";
 import CheckIcon from "../assets/check.svg?react"
 import LoaderIcon from "../assets/loader.svg?react"
 import TrashIcon from "../assets/trash-2.svg?react"
+import DetailsIcon from "../assets/details.svg?react"
+
 import { Button } from "./Button";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp) => {
+    const navigate = useNavigate()
     const [deleteIsLoading, setDeleteIsLoading] = useState(false)
 
     const getStatusClasses = (status: string) => {
@@ -23,6 +27,10 @@ export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp)
         }
 
         return StatusTask.Pendente
+    }
+
+    const handleDetailsClick = () => {
+        navigate(`/tasks/${task.id}`)
     }
 
     const handleDeleteClick = async(taskId: string | null) =>{
@@ -61,8 +69,18 @@ export const TaskItem = ({ task, handlerTasksClick, onDeleteSuccess }: TaskProp)
                 </label>
                 {task.titulo}
             </div>
-           <Button type="button" color="ghost" onClick={() => handleDeleteClick(task.id)} disabled={deleteIsLoading}>{!deleteIsLoading ? <TrashIcon/> : <LoaderIcon className="animate-spin"/> }</Button>
-   
+            <div className="flex items-center">
+                <Button 
+                    type="button" 
+                    color="ghost" 
+                    onClick={() => handleDeleteClick(task.id)} 
+                    disabled={deleteIsLoading}>
+                        {!deleteIsLoading ? <TrashIcon/> : <LoaderIcon className="animate-spin"/> }
+                </Button>
+                <Link to={`/task/${task.id}`}>
+                    <DetailsIcon/>
+                </Link>
+            </div>
         </div>
     )
 }
