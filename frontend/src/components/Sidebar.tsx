@@ -1,7 +1,7 @@
 import { useState } from "react"
 import HomeIcon from "../assets/home.svg?react"
 import ListChecks from "../assets/list-checks.svg?react"
-import { Menu, type SidebarProps } from "../types/Sidebar"
+import { Menu } from "../types/Sidebar"
 import { Button } from "./Button"
 import { SectionHeader } from "./SectionHeader"
 import { Link } from "react-router-dom"
